@@ -31,7 +31,7 @@ jobs:
       - name: ssh to the machine and add the new file there
         run: |
           eval "$(ssh-agent -s)",
-          echo "${{ secrets.ssh_key }}" | ssh-add -
+          echo "${{ secrets.SSH_KEY1 }}" | ssh-add -
           ssh -o StrictHostKeyChecking=no ubuntu@10.71.165.40 "touch ~/somenewfile",
           touch ~/somenewfile2,
           echo test, and deploy your project.
