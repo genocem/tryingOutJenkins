@@ -34,5 +34,6 @@ jobs:
             mkdir -p ~/.ssh
             chmod 700 ~/.ssh
             echo " ${{ secrets.SSH_PRIVATE_KEY }} " > ~/.ssh/vmkey
-            ssh ubuntu@10.71.165.11 'echo "hello" > hewwo'
+            ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@10.71.165.11 'echo "hello" > hewwo'
+
                 
