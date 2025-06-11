@@ -33,6 +33,6 @@ jobs:
             mkdir -p ~/.ssh
             echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/vmkey
             chmod 600 ~/.ssh/vmkey
-            ssh -i ~/.ssh/vmkey -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@10.71.165.11 'echo "hello" > hewwo'
+            ssh -i ~/.ssh/vmkey -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@10.71.165.172 'echo "hello" > hewwo'
 
                 
