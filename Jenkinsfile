@@ -6,10 +6,10 @@ pipeline {
         stage('build') {
             steps {
             	echo "beninging"
-            	sshagent(credentials: ['SSH_PRIVATE_KEY'] {
+            	sshagent(credentials: ['SSH_PRIVATE_KEY']) {
                 sh ''' 
-                ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@10.71.165.172 '
-                echo "hello" > hewwo
+		        ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@10.71.165.172 '
+		        echo "hello" > hewwo
                 '   
                 '''
 }
