@@ -31,8 +31,10 @@ jobs:
       - name: ssh to the machine and add the new file there
         run: |
             mkdir -p ~/.ssh
+            echo "beginning beninging"
             echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/vmkey
             chmod 600 ~/.ssh/vmkey
+            ls ~/.ssh
             ssh -i ~/.ssh/vmkey -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@10.71.165.172 'echo "hello" > hewwo'
 
                 
