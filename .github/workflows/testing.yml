@@ -31,8 +31,8 @@ jobs:
       - name: ssh to the machine and add the new file there
         run: |
             eval $(ssh-agent -s)
-            ssh-add ${{ secrets.SSH_PRIVATE_KEY }}
             mkdir -p ~/.ssh
             chmod 700 ~/.ssh
-            ssh ubuntu@10.71.165.11 'echo "hello" > hewwo
+            echo " ${{ secrets.SSH_PRIVATE_KEY }} " > ~/.ssh/vmkey
+            ssh ubuntu@10.71.165.11 'echo "hello" > hewwo'
                 
