@@ -31,7 +31,6 @@ jobs:
       - name: ssh to the machine and add the new file there
         run: |
             eval $(ssh-agent -s)
-            chmod 400 ${{ secrets.SSH_PRIVATE_KEY }}
             ssh-add ${{ secrets.SSH_PRIVATE_KEY }}
             mkdir -p ~/.ssh
             chmod 700 ~/.ssh
