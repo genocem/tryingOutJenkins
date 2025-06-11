@@ -1,11 +1,19 @@
 Jenkinsfile (Declarative Pipeline)
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent { docker { image 'maven:3.9.9-eclipse-temurin-21-alpine' } }
+	agent any
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+            	echo "beninging"
+            	sshagent(credentials: ['SSH_PRIVATE_KEY'] {
+                sh ''' 
+                ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@10.71.165.172 '
+                echo "hello" > hewwo
+                '   
+                '''
+}
+                
             }
         }
     }
