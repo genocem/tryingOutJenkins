@@ -30,8 +30,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: ssh to the machine and add the new file there
         run: |
-          eval "$(ssh-agent -s)"
-          echo "${{ secrets.SSH_KEY1 }}" | ssh-add -
-          ssh -o StrictHostKeyChecking=no ubuntu@10.71.165.40 "touch ~/somenewfile"
-          touch ~/somenewfile2
-          echo test
+            eval $(ssh-agent -s)
+            chmod 400 "$SSH_PRIVATE_KEY"
+            ssh-add "$SSH_PRIVATE_KEY"
+            mkdir -p ~/.ssh
+            chmod 700 ~/.ssh
+            ssh ubuntu@10.71.165.11 'echo "hello" > hewwo
+                
